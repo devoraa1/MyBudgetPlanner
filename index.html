@@ -1,0 +1,208 @@
+<!-- Specify document type as HTML5 -->
+<!DOCTYPE html>
+<!-- Define the root element and set language to English -->
+<html lang="en">
+<!-- Container for metadata, title, and external stylesheets -->
+<head>
+  <!-- Set character encoding to UTF-8 for universal character support -->
+  <meta charset="UTF-8">
+  <!-- Ensure proper rendering and responsive scaling on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Set the webpage title shown on the browser tab -->
+  <title>Budget Planner</title>
+  <!-- Link the external CSS stylesheet for styling -->
+  <link rel="stylesheet" href="style.css">
+<!-- Close the head section -->
+</head>
+<!-- Main container for visible page content -->
+<body>
+  <!-- Main container div for the dashboard layout -->
+  <div class="dashboard">
+    <!-- Top KPI Cards -->
+    <!-- Section wrapper for key performance indicator (KPI) cards -->
+    <div class="kpi-section">
+      <!-- Container card for Total Balance display -->
+      <div class="kpi-card">
+        <!-- Display money emoji icon with blue styling -->
+        <div class="kpi-icon icon-blue">💵</div>
+        <!-- Wrapper for KPI title and dynamic value -->
+        <div class="kpi-info">
+          <!-- Label for total balance -->
+          <span class="kpi-title">Total Balance</span>
+          <!-- Dynamic text displaying the balance amount, default ₱0.00 -->
+          <span class="kpi-value val-blue" id="balance">₱0.00</span>
+        <!-- Close kpi-info wrapper -->
+        </div>
+      <!-- Close Total Balance card -->
+      </div>
+      <!-- Container card for Total Income display -->
+      <div class="kpi-card">
+        <!-- Display trending up emoji icon with green styling -->
+        <div class="kpi-icon icon-green">📈</div>
+        <!-- Wrapper for KPI title and dynamic value -->
+        <div class="kpi-info">
+          <!-- Label for total income -->
+          <span class="kpi-title">Total Income</span>
+          <!-- Dynamic text displaying total income amount, default ₱0.00 -->
+          <span class="kpi-value val-green" id="total-income">₱0.00</span>
+        <!-- Close kpi-info wrapper -->
+        </div>
+      <!-- Close Total Income card -->
+      </div>
+      <!-- Container card for Total Expenses display -->
+      <div class="kpi-card">
+        <!-- Display trending down emoji icon with red styling -->
+        <div class="kpi-icon icon-red">📉</div>
+        <!-- Wrapper for KPI title and dynamic value -->
+        <div class="kpi-info">
+          <!-- Label for total expenses -->
+          <span class="kpi-title">Total Expenses</span>
+          <!-- Dynamic text displaying total expense amount, default ₱0.00 -->
+          <span class="kpi-value val-red" id="total-expenses">₱0.00</span>
+        <!-- Close kpi-info wrapper -->
+        </div>
+      <!-- Close Total Expenses card -->
+      </div>
+    <!-- Close KPI section grid -->
+    </div>
+
+    <!-- Main Workspace Grid -->
+    <!-- Container wrapper for main form and overview cards -->
+    <div class="workspace">
+      <!-- Left Column: Add Transaction Form -->
+      <!-- Card container for the transaction input form -->
+      <div class="card-box">
+        <!-- Section heading for adding transactions -->
+        <h2>Add Transaction</h2>
+        <!-- Form element target for JavaScript submission handling -->
+        <form id="budget-form">
+          <!-- Form group container for description input field -->
+          <div class="form-group">
+            <!-- Label for the description field -->
+            <label for="description">Description</label>
+            <!-- Required text input field for transaction description -->
+            <input type="text" id="description" placeholder="e.g. Allowance, Food" required>
+          <!-- Close description form group -->
+          </div>
+          <!-- Form group container for amount input field -->
+          <div class="form-group">
+            <!-- Label for the amount field -->
+            <label for="amount">Amount</label>
+            <!-- Required numeric input field allowing decimal values -->
+            <input type="number" id="amount" placeholder="Enter amount" step="0.01" required>
+          <!-- Close amount form group -->
+          </div>
+          <!-- Form group container for transaction type selector -->
+          <div class="form-group">
+            <!-- Label for transaction type dropdown -->
+            <label for="type">Transaction Type</label>
+            <!-- Dropdown select menu for picking income or expense -->
+            <select id="type">
+              <!-- Dropdown option for income transactions -->
+              <option value="income">Income</option>
+              <!-- Dropdown option for expense transactions -->
+              <option value="expense">Expense</option>
+            <!-- Close select dropdown -->
+            </select>
+          <!-- Close transaction type form group -->
+          </div>
+          <!-- Form submission button -->
+          <button type="submit" class="btn-submit">+ Add Transaction</button>
+        <!-- Close budget form -->
+        </form>
+      <!-- Close Add Transaction card container -->
+      </div>
+
+      <!-- Right Column: Budget Overview Progress -->
+      <!-- Card container for budget overview bars -->
+      <div class="card-box">
+        <!-- Section heading for budget overview -->
+        <h2>Budget Overview</h2>
+        <!-- Wrapper list for progress overview items -->
+        <div class="overview-list">
+          <!-- Item wrapper for Income overview and progress bar -->
+          <div class="overview-item">
+            <!-- Flex container for item title and display value -->
+            <div class="overview-labels">
+              <!-- Label name for income overview -->
+              <span>Income</span>
+              <!-- Dynamic value placeholder for total overview income -->
+              <span id="overview-income">₱0.00</span>
+            <!-- Close overview label container -->
+            </div>
+            <!-- Background container for income progress bar -->
+            <div class="progress-bar-bg"><div class="progress-bar fill-green" id="bar-income" style="width: 0%"></div></div>
+          <!-- Close income overview item -->
+          </div>
+          <!-- Item wrapper for Expenses overview and progress bar -->
+          <div class="overview-item">
+            <!-- Flex container for item title and display value -->
+            <div class="overview-labels">
+              <!-- Label name for expenses overview -->
+              <span>Expenses</span>
+              <!-- Dynamic value placeholder for total overview expenses -->
+              <span id="overview-expenses">₱0.00</span>
+            <!-- Close overview label container -->
+            </div>
+            <!-- Background container for expenses progress bar -->
+            <div class="progress-bar-bg"><div class="progress-bar fill-red" id="bar-expenses" style="width: 0%"></div></div>
+          <!-- Close expenses overview item -->
+          </div>
+          <!-- Item wrapper for Remaining budget overview and progress bar -->
+          <div class="overview-item">
+            <!-- Flex container for item title and display value -->
+            <div class="overview-labels">
+              <!-- Label name for remaining balance overview -->
+              <span>Remaining</span>
+              <!-- Dynamic value placeholder for remaining budget -->
+              <span id="overview-remaining">₱0.00</span>
+            <!-- Close overview label container -->
+            </div>
+            <!-- Background container for remaining budget progress bar -->
+            <div class="progress-bar-bg"><div class="progress-bar fill-blue" id="bar-remaining" style="width: 0%"></div></div>
+          <!-- Close remaining overview item -->
+          </div>
+        <!-- Close overview list -->
+        </div>
+      <!-- Close Budget Overview card container -->
+      </div>
+    <!-- Close main workspace grid wrapper -->
+    </div>
+
+    <!-- Bottom History Panel -->
+    <!-- Card container for transaction list and history -->
+    <div class="card-box history-box">
+      <!-- Flex header container for transaction history section -->
+      <div class="history-header">
+        <!-- Text container for section heading and description -->
+        <div>
+          <!-- Heading for transaction history -->
+          <h2>Transaction History</h2>
+          <!-- Subtitle description for the history list -->
+          <p class="sub-text">View and manage your transactions</p>
+        <!-- Close header text container -->
+        </div>
+        <!-- Action button to clear all transactions from history -->
+        
+<div class="history-actions">
+
+  <button id="clear-all-btn" class="btn-clear">
+    Clear All
+  </button>
+</div>
+
+      <!-- Close history header container -->
+      </div>
+      <!-- Unordered list element where dynamically added transactions will be rendered -->
+      <ul id="transaction-list" class="transaction-list"></ul>
+    <!-- Close history card box -->
+    </div>
+  <!-- Close main dashboard container -->
+  </div>
+
+  <!-- Include external JavaScript file before closing body tag -->
+  <script src="script.js"></script>
+<!-- Close body tag -->
+</body>
+<!-- Close html document tag -->
+</html>

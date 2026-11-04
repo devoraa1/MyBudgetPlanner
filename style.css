@@ -1,0 +1,475 @@
+/* Universal selector to apply styles to all elements */
+* {
+  /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
+  /* Reset default margin to zero */
+  margin: 0;
+  /* Reset default padding to zero */
+  padding: 0;
+  /* Set the default font stack across system platforms */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Styles for the body element */
+body {
+  /* Set background color to light blue */
+  background-color: #a2cdf7;
+  /* Set default text color to dark gray */
+  color: #333333;
+  /* Enable flexbox layout for the body */
+  display: flex;
+  /* Center children horizontally */
+  justify-content: center;
+  /* Add vertical and horizontal padding to the body */
+  padding: 30px 20px;
+}
+
+/* Main dashboard container */
+.dashboard {
+  /* Set maximum width constraint for the dashboard */
+  max-width: 1100px;
+  /* Occupy full available width up to max-width */
+  width: 100%;
+  /* Enable flexbox layout */
+  display: flex;
+  /* Stack children vertically */
+  flex-direction: column;
+  /* Set space between vertical sections */
+  gap: 24px;
+}
+
+/* KPI CARDS */
+/* Container section for key performance indicator cards */
+.kpi-section {
+  /* Enable CSS Grid layout */
+  display: grid;
+  /* Set responsive columns with auto-fit and minimum width of 280px */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* Set gap between grid items */
+  gap: 20px;
+}
+
+/* Individual KPI card style */
+.kpi-card {
+  /* Set card background color to white */
+  background: #ffffff;
+  /* Rounded corners for the card */
+  border-radius: 16px;
+  /* Inner padding for the card */
+  padding: 24px;
+  /* Enable flexbox layout */
+  display: flex;
+  /* Align items vertically in the center */
+  align-items: center;
+  /* Set spacing between icon and text info */
+  gap: 16px;
+  /* Add soft subtle shadow to the card */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* Icon container inside KPI card */
+.kpi-icon {
+  /* Set icon width */
+  width: 56px;
+  /* Set icon height */
+  height: 56px;
+  /* Make the icon container circular */
+  border-radius: 50%;
+  /* Enable flexbox layout */
+  display: flex;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically */
+  justify-content: center;
+  /* Set icon font size */
+  font-size: 26px;
+}
+
+/* Blue background for icon */
+.icon-blue { background-color: #f0f4ff; }
+/* Green background for icon */
+.icon-green { background-color: #ebfaf0; }
+/* Red background for icon */
+.icon-red { background-color: #fff1f2; }
+
+/* Text container inside KPI card */
+.kpi-info {
+  /* Enable flexbox layout */
+  display: flex;
+  /* Stack title and value vertically */
+  flex-direction: column;
+}
+
+/* Title text inside KPI card */
+.kpi-title {
+  /* Set font size for KPI title */
+  font-size: 14px;
+  /* Set text color to slate gray */
+  color: #5c677d;
+  /* Set semi-bold font weight */
+  font-weight: 600;
+  /* Add spacing below title */
+  margin-bottom: 4px;
+}
+
+/* Value text inside KPI card */
+.kpi-value {
+  /* Set font size for KPI numerical value */
+  font-size: 24px;
+  /* Set heavy font weight */
+  font-weight: 750;
+}
+
+/* Blue color for value text */
+.val-blue { color: #1e40af; }
+/* Green color for value text */
+.val-green { color: #10b981; }
+/* Red color for value text */
+.val-red { color: #ef4444; }
+
+/* LAYOUT */
+/* Workspace container holding forms/lists side by side */
+.workspace {
+  /* Enable CSS Grid layout */
+  display: grid;
+  /* Divide space into 2 equal columns */
+  grid-template-columns: 1fr 1fr;
+  /* Set spacing between columns */
+  gap: 24px;
+}
+
+/* Responsive query for screen widths up to 768px */
+@media (max-width: 768px) {
+  /* Change workspace layout to 1 column on smaller screens */
+  .workspace { grid-template-columns: 1fr; }
+}
+
+/* Generic card container box */
+.card-box {
+  /* Set card background color to white */
+  background: #ffffff;
+  /* Rounded corners for the container */
+  border-radius: 16px;
+  /* Inner padding for the card box */
+  padding: 30px;
+  /* Add soft box shadow */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* Heading style inside card box */
+.card-box h2 {
+  /* Set font size for card heading */
+  font-size: 20px;
+  /* Set heading text color */
+  color: #111827;
+  /* Add spacing below heading */
+  margin-bottom: 24px;
+  /* Set bold font weight */
+  font-weight: 700;
+}
+
+/* FORM FIELDS */
+/* Container wrapper for form field groups */
+.form-group {
+  /* Add spacing below each form group */
+  margin-bottom: 20px;
+}
+
+/* Label styling for form inputs */
+label {
+  /* Force label to take its own line */
+  display: block;
+  /* Set label font size */
+  font-size: 14px;
+  /* Set semi-bold font weight */
+  font-weight: 600;
+  /* Set dark gray color for label text */
+  color: #1f2937;
+  /* Add spacing below label */
+  margin-bottom: 8px;
+}
+
+/* Input and Select element base styling */
+input, select {
+  /* Set width to fill container */
+  width: 100%;
+  /* Set internal padding for input fields */
+  padding: 12px 16px;
+  /* Set subtle border */
+  border: 1px solid #e5e7eb;
+  /* Rounded corners for inputs */
+  border-radius: 10px;
+  /* Set font size for typed text */
+  font-size: 15px;
+  /* Set text color */
+  color: #111827;
+  /* Set background color to white */
+  background-color: #ffffff;
+  /* Smooth transition effect on border color change */
+  transition: border-color 0.15s ease-in-out;
+}
+
+/* Placeholder styling for inputs */
+input::placeholder {
+  /* Set placeholder text color to gray */
+  color: #9ca3af;
+}
+
+/* Focus states for input and select controls */
+input:focus, select:focus {
+  /* Remove default browser focus outline */
+  outline: none;
+  /* Highlight border with blue on focus */
+  border-color: #3b82f6;
+}
+
+/* Primary submit button styling */
+.btn-submit {
+  /* Set button width to full container */
+  width: 100%;
+  /* Set background color to vibrant blue */
+  background-color: #2563eb;
+  /* Set button text color to white */
+  color: #ffffff;
+  /* Set inner vertical padding */
+  padding: 14px;
+  /* Set button text size */
+  font-size: 15px;
+  /* Set semi-bold font weight */
+  font-weight: 600;
+  /* Remove default border */
+  border: none;
+  /* Rounded corners for button */
+  border-radius: 10px;
+  /* Show hand pointer cursor on hover */
+  cursor: pointer;
+  /* Smooth background color transition */
+  transition: background-color 0.15s ease;
+  /* Add top margin spacing */
+  margin-top: 8px;
+}
+
+/* Hover state for submit button */
+.btn-submit:hover {
+  /* Darken blue background color on hover */
+  background-color: #1d4ed8;
+}
+
+/* PROGRESS & BARS */
+/* Vertical list container for overview progress bars */
+.overview-list {
+  /* Enable flexbox layout */
+  display: flex;
+  /* Stack items vertically */
+  flex-direction: column;
+  /* Set spacing between list items */
+  gap: 22px;
+}
+
+/* Individual item wrapper in overview section */
+.overview-item {
+  /* Enable flexbox layout */
+  display: flex;
+  /* Stack labels and progress bar vertically */
+  flex-direction: column;
+  /* Set spacing between elements */
+  gap: 8px;
+}
+
+/* Label row container above progress bars */
+.overview-labels {
+  /* Enable flexbox layout */
+  display: flex;
+  /* Push label and percentage to opposite ends */
+  justify-content: space-between;
+  /* Set label text size */
+  font-size: 15px;
+  /* Set medium-bold font weight */
+  font-weight: 550;
+  /* Set gray text color */
+  color: #4b5563;
+}
+
+/* Outer background bar for progress indicator */
+.progress-bar-bg {
+  /* Take full width of parent container */
+  width: 100%;
+  /* Set track height */
+  height: 6px;
+  /* Set background track color */
+  background-color: #f3f4f6;
+  /* Fully rounded capsule edges */
+  border-radius: 100px;
+  /* Clip overflowing inner bar */
+  overflow: hidden;
+}
+
+/* Inner active progress indicator line */
+.progress-bar {
+  /* Take full height of parent track */
+  height: 100%;
+  /* Fully rounded capsule edges */
+  border-radius: 100px;
+  /* Smooth width animation when progress updates */
+  transition: width 0.4s ease-out;
+}
+
+/* Blue progress fill color */
+.fill-blue { background-color: #3b82f6; }
+/* Green progress fill color */
+.fill-green { background-color: #10b981; }
+/* Red progress fill color */
+.fill-red { background-color: #ef4444; }
+
+/* LIST */
+/* Container wrapper for transaction history box */
+.history-box {
+  /* Enable flexbox layout */
+  display: flex;
+  /* Stack internal children vertically */
+  flex-direction: column;
+}
+
+/* Header row for history box */
+.history-header {
+  /* Enable flexbox layout */
+  display: flex;
+  /* Separate title area and clear button */
+  justify-content: space-between;
+  /* Align items vertically in center */
+  align-items: center;
+  /* Add bottom margin spacing */
+  margin-bottom: 24px;
+}
+
+/* Specific heading override inside history header */
+.history-header h2 {
+  /* Override bottom margin to 4px using important flag */
+  margin-bottom: 4px !important;
+}
+
+/* Subtitle description text */
+.sub-text {
+  /* Set font size for sub-text */
+  font-size: 14px;
+  /* Set gray text color */
+  color: #6b7280;
+}
+
+/* Clear list action button */
+.btn-clear {
+  /* Set soft red background color */
+  background-color: #fee2e2;
+  /* Set red text color */
+  color: #ef4444;
+  /* Set semi-bold font weight */
+  font-weight: 600;
+  /* Set button font size */
+  font-size: 13px;
+  /* Set internal button padding */
+  padding: 8px 16px;
+  /* Remove default border */
+  border: none;
+  /* Rounded corners for button */
+  border-radius: 8px;
+  /* Show pointer cursor on hover */
+  cursor: pointer;
+  /* Smooth background color transition */
+  transition: background-color 0.15s ease;
+}
+
+/* Hover state for clear button */
+.btn-clear:hover {
+  /* Darken red background on hover */
+  background-color: #fca5a5;
+}
+
+/* Unordered list styling for transactions */
+.transaction-list {
+  /* Remove default list bullet points */
+  list-style: none;
+  /* Enable flexbox layout */
+  display: flex;
+  /* Stack transaction list items vertically */
+  flex-direction: column;
+  /* Set spacing between list items */
+  gap: 12px;
+}
+
+/* Individual transaction list item styling */
+.transaction-list li {
+  /* Enable flexbox layout */
+  display: flex;
+  /* Distribute text content across ends */
+  justify-content: space-between;
+  /* Center items vertically */
+  align-items: center;
+  /* Internal padding inside item card */
+  padding: 16px 20px;
+  /* Rounded corners for item box */
+  border-radius: 12px;
+  /* Set text size */
+  font-size: 15px;
+  /* Set medium-bold font weight */
+  font-weight: 550;
+  /* Subtle box shadow for list items */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Green theme variant for income items */
+.transaction-list li.income {
+  /* Light green background color */
+  background-color: #ebfaf0;
+  /* Dark green text color */
+  color: #065f46;
+}
+
+/* Red theme variant for expense items */
+.transaction-list li.expense {
+  /* Light red background color */
+  background-color: #fff1f2;
+  /* Dark red text color */
+  color: #9f1239;
+}
+
+/* Group Undo and Clear buttons side by side */
+.history-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Undo button */
+.btn-undo {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-undo:hover:not(:disabled) {
+  background-color: #bfdbfe;
+}
+
+/* Disabled Undo button */
+.btn-undo:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Keep buttons usable on smaller screens */
+@media (max-width: 480px) {
+  .history-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .history-actions {
+    flex-wrap: wrap;
+  }
+}
